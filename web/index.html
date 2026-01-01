@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Daycares in Richmond BC | 2025 Rankings</title>
+    <meta name="description" content="Comprehensive ranking of the top 10 daycare centers in Richmond BC, Canada. Compare ratings, costs, curriculum types, and find the perfect childcare for your family.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="badge">🏆 2025 Edition</div>
+            <h1>Top 10 Daycares in<br><span class="gradient-text">Richmond BC</span></h1>
+            <p class="hero-subtitle">Comprehensive ranking based on parent reviews, curriculum quality, and expert analysis</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">Top-Rated Centers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Parent Reviews</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Curriculum Types</span>
+                </div>
+            </div>
+            <a href="#rankings" class="cta-button">
+                <span>View Rankings</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- Filter Section -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-header">
+                <h2>Find Your Perfect Daycare</h2>
+                <p>Filter by age group, curriculum type, or budget</p>
+            </div>
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label>Age Group</label>
+                    <select id="ageFilter">
+                        <option value="all">All Ages</option>
+                        <option value="infant">Infant (0-18 months)</option>
+                        <option value="toddler">Toddler (18-36 months)</option>
+                        <option value="preschool">Preschool (3-5 years)</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Curriculum</label>
+                    <select id="curriculumFilter">
+                        <option value="all">All Types</option>
+                        <option value="Montessori">Montessori</option>
+                        <option value="Reggio Emilia">Reggio Emilia</option>
+                        <option value="Play-Based">Play-Based</option>
+                        <option value="STEM-Focused">STEM-Focused</option>
+                        <option value="Inclusive/Special Needs">Inclusive/Special Needs</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Budget (Monthly)</label>
+                    <select id="budgetFilter">
+                        <option value="all">All Budgets</option>
+                        <option value="low">Under $800</option>
+                        <option value="mid">$800 - $1,000</option>
+                        <option value="high">$1,000+</option>
+                    </select>
+                </div>
+                <button class="reset-filters" onclick="resetFilters()">Reset Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rankings Section -->
+    <section id="rankings" class="rankings-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>2025 Rankings</h2>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid" onclick="setView('grid')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="3" y="3" width="7" height="7" rx="1"/>
+                            <rect x="14" y="3" width="7" height="7" rx="1"/>
+                            <rect x="3" y="14" width="7" height="7" rx="1"/>
+                            <rect x="14" y="14" width="7" height="7" rx="1"/>
+                        </svg>
+                    </button>
+                    <button class="view-btn" data-view="list" onclick="setView('list')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="3" y="4" width="18" height="4" rx="1"/>
+                            <rect x="3" y="10" width="18" height="4" rx="1"/>
+                            <rect x="3" y="16" width="18" height="4" rx="1"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="daycareGrid" class="daycare-grid">
+                <!-- Daycare cards will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="compare" class="compare-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Compare Daycares</h2>
+                <p>Select up to 3 daycares to compare side-by-side</p>
+            </div>
+            <div class="compare-selection">
+                <div id="selectedComparison" class="selected-items">
+                    <p class="empty-state">Click "Compare" on any daycare card to add it here</p>
+                </div>
+                <button id="compareBtn" class="compare-btn" onclick="showComparison()" disabled>
+                    Compare Selected (<span id="compareCount">0</span>/3)
+                </button>
+            </div>
+            <div id="comparisonResult" class="comparison-table-container" style="display: none;">
+                <!-- Comparison table will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Recommendations -->
+    <section class="recommendations-section">
+        <div class="container">
+            <h2>Quick Recommendations</h2>
+            <div class="recommendations-grid">
+                <div class="recommendation-card" onclick="filterByRecommendation('infant')">
+                    <div class="rec-icon">👶</div>
+                    <h3>Best for Infants</h3>
+                    <p>Kids R Us, Crystal Star</p>
+                    <span class="rec-tag">Specialized Care</span>
+                </div>
+                <div class="recommendation-card" onclick="filterByRecommendation('montessori')">
+                    <div class="rec-icon">📚</div>
+                    <h3>Best Montessori</h3>
+                    <p>Ironwood Montessori Academy</p>
+                    <span class="rec-tag">Self-Directed Learning</span>
+                </div>
+                <div class="recommendation-card" onclick="filterByRecommendation('special')">
+                    <div class="rec-icon">💜</div>
+                    <h3>Best Inclusive</h3>
+                    <p>PAFN/SOAR Preschool</p>
+                    <span class="rec-tag">Autism Support</span>
+                </div>
+                <div class="recommendation-card" onclick="filterByRecommendation('budget')">
+                    <div class="rec-icon">💰</div>
+                    <h3>Best Value</h3>
+                    <p>Creative Daycare</p>
+                    <span class="rec-tag">Under $750/mo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subsidy Info -->
+    <section class="subsidy-section">
+        <div class="container">
+            <div class="subsidy-card">
+                <div class="subsidy-content">
+                    <h2>💡 BC Childcare Subsidies</h2>
+                    <p>Richmond has some of Canada's highest childcare costs, but these programs can help:</p>
+                    <div class="subsidy-grid">
+                        <div class="subsidy-item">
+                            <h4>CCFRI</h4>
+                            <p>Up to $900/month reduction for ages 0-3</p>
+                        </div>
+                        <div class="subsidy-item">
+                            <h4>ACCB</h4>
+                            <p>Up to $1,250/month for eligible families</p>
+                        </div>
+                        <div class="subsidy-item">
+                            <h4>$10 a Day</h4>
+                            <p>Reduce costs to ~$200/month</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Richmond BC Daycare Rankings</h3>
+                    <p>Data compiled from Google Reviews, TrustAnalytica, Reddit, and official sources.</p>
+                    <p class="disclaimer">Last updated: January 2025. Please verify information directly with each daycare.</p>
+                </div>
+                <div class="footer-resources">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://www.richmond.ca/parks-recreation/child-care.htm" target="_blank">City of Richmond Child Care</a></li>
+                        <li><a href="tel:604-279-7020">Richmond Child Care Referral: 604-279-7020</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Richmond Daycare Rankings. Built with ❤️ for parents.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Daycare Details -->
+    <div id="daycareModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalBody">
+                <!-- Modal content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
