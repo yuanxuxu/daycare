@@ -1,6 +1,12 @@
 # Top 10 Daycare Centers in Richmond BC, Canada
 
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://yuanxuxu.github.io/daycare/)
+[![Language](https://img.shields.io/badge/language-EN%20%7C%20中文-blue)](https://yuanxuxu.github.io/daycare/)
+
+**🌐 [View Live Demo →](https://yuanxuxu.github.io/daycare/)**
+
 A comprehensive ranking and analysis tool for daycare centers in Richmond BC, Canada.
+
 
 ## Features
 
